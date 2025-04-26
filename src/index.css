@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap');
+
+:root {
+
+  color-scheme: light dark;
+  
+  --ScissorsGradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --PaperGradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --RockGradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --LizardGradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --SpockGradient: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+  
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.gameContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-image: radial-gradient(circle,rgba(20, 21, 57, 1) 0%, rgba(31, 55, 86, 1) 100%);
+  height: 100vh;
+  padding: 20px;
+}
+
+

@@ -1,0 +1,213 @@
+/* Header style */
+.gameHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 60%;
+    border: 3px solid var(--HeaderOutline);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#gameHeaderLogo {
+    height: 80px;
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.scoreBoard p {
+    margin: 0;
+}
+
+#score {
+    color: var(--ScoreText);
+    font-weight: bold;
+}
+
+#scorepoint {
+    color: var(--DarkText);
+    font-size: 2rem;
+}
+
+/* Main Game */
+.maingameContainer {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.maingameContainer.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.triangleBg {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.rock,
+.paper,
+.scissors {
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    padding: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.rock {
+    bottom: 0px;
+    left: 28%;
+    background: var(--RockGradient);
+}
+
+.paper {
+    top: -30px;
+    left: -30px;
+    background: var(--PaperGradient);
+}
+
+.scissors {
+    top: -30px;
+    right: -30px;
+    background: var(--ScissorsGradient);
+}
+
+.gameBtn {
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    box-shadow: inset 0 8px 6px -6px black;
+    ;
+    padding: 40px;
+    border-radius: 50%;
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+    transform: scale(1.1);
+    transition: transform 1s ease
+}
+
+/* Animation */
+
+
+.fadeOut {
+    animation: fadeOutAnim 0.5s ease forwards;
+}
+
+.fadeIn {
+    animation: fadeInAnim 0.5s ease forwards;
+}
+
+.paper:active {
+    transform: movedown 0.5s ease;
+}
+
+/* Animation frames */
+@keyframes fadeOutAnim {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInAnim {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes movedown {
+    from {
+        top: -50px;
+    }
+
+    to {
+        top: 20px
+    }
+}
+
+/* Mobile view 😏 */
+@media (max-width: 425px) {
+    .scoreBoard {
+        width: 30%;
+    }
+    .maingameContainer {
+        width: 100%;
+        height: 400px;
+        margin: 50px auto;
+    }
+
+    .triangleBg {
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+    .rock,
+    .paper,
+    .scissors {
+        height: 120px;
+        width: 120px;
+    }
+
+    .gameBtn {
+        width: 50px;
+        height: 50px;
+        padding: 20px;
+    }
+
+    .rock {
+        bottom: 0px;
+        left: 33%;
+    }
+
+    .paper {
+        top: 0px;
+        left: 0px;
+    }
+
+    .scissors {
+        top: 0px;
+        right: 0px;
+    }
+}

@@ -1,0 +1,186 @@
+.battlepick {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 50px;
+  color: white;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.battlepick.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pickGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pickGroup p {
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #e0e0e0;
+}
+
+.pickCircle {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  transition: box-shadow 0.5s ease, opacity 0.5s ease;
+}
+
+/* Inner white part */
+.innerCircle {
+  height: 100%;
+  width: 100%;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 8px 6px -6px black;
+  position: relative;
+  z-index: 2;
+}
+
+.innerCircle img {
+  width: 80px;
+  height: 80px;
+}
+
+.resultMessage {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+
+.resultMessage.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.resultMessage h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.resultMessage button {
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: white;
+  color: var(--DarkText);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.resultMessage button:hover {
+  background: #e0e0e0;
+}
+
+.Rock {
+  background: var(--RockGradient);
+}
+.Paper {
+  background: var(--PaperGradient);
+}
+.Scissors {
+  background: var(--ScissorsGradient);
+}
+
+.winnerOuter {
+  animation: winnerGlowFadeIn 0.8s forwards;
+}
+
+.fadeIn {
+  animation: fadeInPick 0.6s ease forwards;
+}
+/* Animation keyframes */
+@keyframes winnerGlowFadeIn {
+  0% {
+      box-shadow:
+          0 0 0 0px rgba(255, 255, 255, 0.0),
+          0 0 0 0px rgba(255, 255, 255, 0.0),
+          0 0 0 0px rgba(255, 255, 255, 0.0);
+  }
+  100% {
+      box-shadow:
+          0 0 0 60px rgba(255, 255, 255, 0.05),
+          0 0 0 100px rgba(255, 255, 255, 0.03),
+          0 0 0 120px rgba(255, 255, 255, 0.02);
+  }
+}
+
+
+@keyframes fadeInPick {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Mobile view 😏 */
+@media (max-width: 425px) {
+  .battlepick {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pickGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pickGroup p {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+
+  .pickCircle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .pickCircle img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .resultMessage h1 {
+    font-size: 2rem;
+  }
+
+  .resultMessage button {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+
+  .winnerOuter {
+    box-shadow:
+      0 0 0 10px rgba(255, 255, 255, 0.05),
+      0 0 0 20px rgba(255, 255, 255, 0.03),
+      0 0 0 30px rgba(255, 255, 255, 0.02);
+  }
+}
